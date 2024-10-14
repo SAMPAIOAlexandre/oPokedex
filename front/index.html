@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title -->
+    <title>Pokedex</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='24px' height='24px' stroke-width='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='%23000000'%3E%3Cpath d='M3 3.6V20.4C3 20.7314 3.26863 21 3.6 21H20.4C20.7314 21 21 20.7314 21 20.4V3.6C21 3.26863 20.7314 3 20.4 3H3.6C3.26863 3 3 3.26863 3 3.6Z' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M6 6L6 16' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M10 6V9' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M14 6V13' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M18 6V11' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- import de bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <!-- Custom JS -->
+    <script type="module" src="./assets/js/index.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar is-fixed-top">
+            <div class="container">
+                <div class="navbar-brand">
+                    <!-- Menu Burger -->
+                    <div class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a class="navbar-item" href="#">
+                    </a>
+                </div>
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                        <img src="./assets/icons/logo.png" alt="icone_pokemon" class="logo">
+                        <a class="navbar-item title">Pokedex</a>
+                        <!-- Ajout du champ de recherche -->
+                        <div class="navbar-item">
+                            <form id="searchForm" class="field has-addons">
+                                <div class="control">
+                                    <input id="searchInput" class="input" type="text" placeholder="Rechercher par nom ou type">
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-info">
+                                        <span class="icon">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                        <span>Rechercher</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Ajout du lien "Mes équipes" -->
+                        <div class="navbar-item">
+                            <a id="myTeamsLink" class="navbar-item" href="#">Mes équipes</a>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+                        <a href="#" class="button is-link">Connexion</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="pokemonContainer" class="columns is-multiline is-variable is-4 is-centered">
+            <!-- Les Pokémon seront insérés ici -->
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>© 2024 Pokedex. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <!-- template -->
+    <template class="template-pokemon">
+        <div class="box box_pokemon">
+            <figure class="image is-128x128">
+                <img class="pokemon_image" src="" alt="Image du pokémon">
+            </figure>
+            <div class="content">
+                <h4 class="pokemon_name"></h4>
+                <p class="pokemon_types"></p>
+                <div class="pokemon_actions">
+                    <button class="button is-danger is-small">Ajouter à mon équipe</button> <!-- // TODO le rendre visible uniquement une fois connecté -->
+                    <button class="button is-info is-small pokemon-detail">Voir détails du pokémon</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- modal --> 
+    
+    <dialog id="pokemonDialog">
+        <div class="modal is-active">
+            <div class="modal-background close"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Détails du Pokémon</p>
+                    <button class="delete close" type="button" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <figure class="image is-128x128">
+                        <img id="modalPokemonImage" src="" alt="Image du Pokémon">
+                    </figure>
+                    <div class="content">
+                        <h3 id="modalPokemonName" class="title is-4"></h3>
+                        <p id="modalPokemonType" class="subtitle is-6"></p>
+                        <p id="modalPokemonHp"></p>
+                        <p id="modalPokemonAtk"></p>
+                        <p id="modalPokemonDef"></p>
+                        <p id="modalPokemonAtkSpe"></p>
+                        <p id="modalPokemonDefSpe"></p>
+                        <p id="modalPokemonSpeed"></p>
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button close">Fermer</button>
+                </footer>
+            </div>
+        </div>
+    </dialog>
+</body>
+
+</html>

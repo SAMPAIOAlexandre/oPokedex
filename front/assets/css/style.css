@@ -1,0 +1,228 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding-top: 7rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-height: 50px; 
+    width: auto;
+}
+
+.navbar-menu {
+    align-items: center;
+}
+
+.navbar-item {
+    margin-right: 1rem; 
+}
+
+.modal-card {
+    background-color: #2C3E50 !important;
+}
+
+.modal-card-body {
+    background-color: #2C3E50 !important;
+}
+
+.modal-card-head {
+    background-color: #34495E !important;
+}
+
+.modal-card-foot {
+    background-color: #34495E !important;
+}
+
+.field.has-addons {
+    margin-bottom: 0;
+}
+
+/* css button add équipe */
+.button.is-danger {
+    margin-top: 0;
+    font-size: 1rem;
+}
+/* css button détail */
+.button.is-info {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+/* css button connexion */
+.button.is-link {
+    font-size: 0.9rem; 
+}
+
+/* css des types des pokémons */
+.pokemon_types .tag {
+    margin: .2rem;
+    font-size: .9rem;
+    color: black; 
+    font-weight: bold;
+}
+
+.pokemon_image {
+    max-width: 100%;
+    height: auto;
+}
+
+.image.is-128x128 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_pokemon {
+    height: 320px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #2E2E38;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease;
+}
+
+.box.box_pokemon {
+    background-color: #2C3E50;
+}
+
+.box_pokemon:hover {
+    transform: scale(1.05);
+}
+
+.footer {
+    margin-top: 3rem;
+    background-color: #f8f9fa;
+}
+
+
+/* css modal */
+
+#pokemonDialog .modal-card {
+    width: 90%;
+    max-width: 700px; 
+    margin: auto; /
+}
+
+
+.section.modal-card-body {
+    background-color: #2C3E50;
+}
+
+#modalPokemonImage {
+    border-radius: 50%; /* Arrondir l'image */
+    border: 3px solid #ddd; 
+}
+
+
+
+.content {
+    text-align: center; 
+}
+
+
+#modalPokemonName {
+    margin-bottom: 10px; 
+}
+
+#modalPokemonType {
+    margin-bottom: 20px; 
+}
+
+
+.content p {
+    margin: 5px 0;
+    font-size: 1.3rem;
+    color: white;
+}
+
+
+.modal-card-foot {
+    text-align: center; 
+}
+
+
+.close {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .column.is-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .navbar-burger {
+        display: block;
+    }
+    
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu.is-active {
+        display: flex;
+    }
+
+    /* css button add équipe */
+    .button.is-danger {
+    margin-top: 0;
+    font-size: .8rem;
+}
+/* css button détail */
+.button.is-info {
+    margin-top: 0;
+    font-size: .8rem;
+}
+
+}
+
+@media (min-width: 1024px) {
+    .columns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .column.is-one-fifth {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    
+}
