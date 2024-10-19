@@ -31,3 +31,8 @@ J'ai dû réaliser en 4 jours le projet O'pokedex, c'est le tout deuxième proje
 ### Dossier Docs
 
 - Un dossier qui contient le MCD/MLD du projet ainsi que les wireframes que j'ai fait pour le site.
+
+### Mise en place du projet
+- Cloner le projet l'initialiser avec npm install 
+- Configurer le fichier .env dans le dossier back
+- Installer les dépendances avec la commande ```npm install ``` dans le dossier app et back
